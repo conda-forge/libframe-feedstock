@@ -16,7 +16,7 @@ Current build status
 
 [![Linux](https://img.shields.io/circleci/project/github/conda-forge/libframe-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/libframe-feedstock)
 [![OSX](https://img.shields.io/travis/conda-forge/libframe-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/libframe-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/libframe-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/libframe-feedstock/branch/master)
 
 Current release info
 ====================
