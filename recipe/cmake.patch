@@ -1,0 +1,58 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 10644
+--- /dev/null	(nonexistent)
++++ CMakeLists.txt	(working copy)
+@@ -0,0 +1,53 @@
++# -*- mode: cmake; conding: utf-8; cmake-tab-width: 4; indent-tabs-mode: nil; -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
++
++# -- package info -----------
++
++cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
++project(libframe VERSION 8.33 )
++
++include(GNUInstallDirs)
++
++# -- libframe library -------
++
++set(LIBFRAME_HEADERS src/FrFilter.h src/FrIO.h src/FrVect.h src/FrameL.h)
++add_library(Frame SHARED
++            src/FrFilter.c src/FrIO.c src/FrameL.c
++            src/zlib/Fradler32.c src/zlib/Frcompress.c src/zlib/Frcrc32.c
++            src/zlib/Frdeflate.c src/zlib/Frinfblock.c src/zlib/Frinfcodes.c
++            src/zlib/Frinffast.c src/zlib/Frinflate.c src/zlib/Frinftrees.c
++            src/zlib/Frinfutil.c src/zlib/Frtrees.c src/zlib/Fruncompr.c
++            src/zlib/Frzutil.c)
++target_include_directories(Frame PRIVATE src/zlib)
++set_target_properties(Frame PROPERTIES VERSION ${PROJECT_VERSION})
++set_target_properties(Frame PROPERTIES SOVERSION 1)
++set_target_properties(Frame PROPERTIES PUBLIC_HEADER "${LIBFRAME_HEADERS}")
++
++install(TARGETS Frame
++        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
++
++# -- executables ------------
++
++add_executable(FrChannels src/FrChannels.c)
++target_link_libraries(FrChannels Frame)
++add_executable(FrCheck src/FrCheck.c)
++target_link_libraries(FrCheck Frame)
++add_executable(FrCopy src/FrCopy.c)
++target_link_libraries(FrCopy Frame)
++add_executable(FrDiff src/FrDiff.c)
++target_link_libraries(FrDiff Frame)
++add_executable(FrDump src/FrDump.c)
++target_link_libraries(FrDump Frame)
++add_executable(FrTrend src/FrTrend.c)
++target_link_libraries(FrTrend Frame)
++add_executable(FrameDataDump src/FrameDataDump.c)
++target_link_libraries(FrameDataDump Frame)
++
++install(TARGETS FrChannels FrCheck FrCopy FrDiff FrDump FrTrend FrameDataDump
++        DESTINATION ${CMAKE_INSTALL_BINDIR})
++
++# -- pkgconfig --------------
++
++# install pkgconfig file
++configure_file(src/libframe.pc.in libframe.pc @ONLY)
++install(FILES ${CMAKE_BINARY_DIR}/libframe.pc DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
