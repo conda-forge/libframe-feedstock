@@ -2,7 +2,7 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 new file mode 10644
 --- /dev/null	(nonexistent)
 +++ CMakeLists.txt	(working copy)
-@@ -0,0 +1,53 @@
+@@ -0,0 +1,55 @@
 +# -*- mode: cmake; conding: utf-8; cmake-tab-width: 4; indent-tabs-mode: nil; -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
 +
 +# -- package info -----------
@@ -11,6 +11,7 @@ new file mode 10644
 +project(libframe LANGUAGES C VERSION 8.33 )
 +
 +include(GNUInstallDirs)
++include(CheckFunctionExists)
 +
 +# -- libframe library -------
 +
@@ -23,6 +24,7 @@ new file mode 10644
 +            src/zlib/Frinfutil.c src/zlib/Frtrees.c src/zlib/Fruncompr.c
 +            src/zlib/Frzutil.c)
 +target_include_directories(Frame PRIVATE src/zlib)
++target_link_libraries(Frame m)
 +set_target_properties(Frame PROPERTIES VERSION ${PROJECT_VERSION})
 +set_target_properties(Frame PROPERTIES SOVERSION 1)
 +set_target_properties(Frame PROPERTIES PUBLIC_HEADER "${LIBFRAME_HEADERS}")
