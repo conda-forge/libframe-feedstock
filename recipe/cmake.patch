@@ -29,11 +29,9 @@ new file mode 10644
 +set_target_properties(Frame PROPERTIES SOVERSION 1)
 +set_target_properties(Frame PROPERTIES PUBLIC_HEADER "${LIBFRAME_HEADERS}")
 +
-+message(STATUS "Libdir: ${CMAKE_INSTALL_LIBDIR}")
-+message(STATUS "Includedir: ${CMAKE_INSTALL_INCLUDEDIR}")
 +install(TARGETS Frame
-+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
++        LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
++        PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 +
 +# -- executables ------------
 +
