@@ -1,5 +1,5 @@
 {% set name = "libframe" %}
-{% set version = "8.30" %}
+{% set version = "8.33" %}
 
 package:
   name: {{ name }}
@@ -8,16 +8,20 @@ package:
 source:
   fn: {{ name }}-{{version}}.tar.gz
   url: http://lappweb.in2p3.fr/virgo/FrameL/{{ name }}-{{version}}.tar.gz
-  md5: efd7959d70e488b95395fbcde9bcd057
-  sha256: 374743ccce835427a0900590a515c112661760e12ec596159d3f86073dd099da
+  md5: 2163a812d1fa7b0a188b1720e1d9f181
+  sha256: e06bff19c3b5ad797bceede2389bd0d11e66e44d84115637fb9e71cae404e7f3
 
 build:
-  number: 1000
+  number: 0
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - make
+    - automake
+    - autoconf
+    - libtool
 
 test:
   commands:
