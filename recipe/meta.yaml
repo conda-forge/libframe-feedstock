@@ -8,8 +8,8 @@ package:
 source:
   fn: {{ name }}-{{version}}.tar.gz
   url: http://lappweb.in2p3.fr/virgo/FrameL/{{ name }}-{{version}}.tar.gz
-  md5: 3ba410349f21dfc678498bb2e9f90707
-  sha256: 7328d5aee815e9714b77c4440258f46a9b433fe84ccf8a7d3fc87614d2e87cf6
+  md5: 2163a812d1fa7b0a188b1720e1d9f181
+  sha256: e06bff19c3b5ad797bceede2389bd0d11e66e44d84115637fb9e71cae404e7f3
 
 build:
   number: 0
