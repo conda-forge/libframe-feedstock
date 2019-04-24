@@ -21,6 +21,7 @@ requirements:
     - make
     - automake
     - autoconf
+    - libtool
 
 test:
   commands:
