@@ -1,5 +1,5 @@
 {% set name = "libframe" %}
-{% set version = "8.30" %}
+{% set version = "8.33" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: 374743ccce835427a0900590a515c112661760e12ec596159d3f86073dd099da
 
 build:
-  number: 1000
+  number: 0
   skip: true  # [win]
 
 requirements:
